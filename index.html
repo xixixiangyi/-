@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+</head>
+<style>
+    #app {
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="app">
+        <input v-model="name">
+        <h1>{{name}}</h1>
+        <button v-on:click="clickMe">点击</button>
+        <h2>{{title}}</h2>
+    </div>
+</body>
+<script src="js/observer.js"></script>
+<script src="js/watcher.js"></script>
+<script src="js/compile.js"></script>
+<script src="js/index.js"></script>
+<script type="text/javascript">
+
+     new SelfVue({
+        el: '#app',
+        data: {
+            title: 'hello',
+            name: '哈哈',
+            list: [
+                { }
+            ]
+        },
+        methods: {
+            clickMe: function () {
+                this.title = 'hello';
+            }
+        },
+        mounted: function () {
+            this.title = '你好';
+        }
+    });
+
+</script>
+</html>
